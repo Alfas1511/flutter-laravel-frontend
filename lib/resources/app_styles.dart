@@ -9,7 +9,15 @@ class AppStyles {
     return TextStyle(color: color, fontSize: size, fontWeight: FontWeight.bold);
   }
 
-   static TextStyle description({double size = 16, Color color = Colors.black}) {
+  static TextStyle description({double size = 16, Color color = Colors.black}) {
     return TextStyle(color: color, fontSize: size);
+  }
+
+  static TextStyle medium({double size = 16, Color color = Colors.black}) {
+    return TextStyle(color: color, fontSize: size, fontWeight: FontWeight.w600);
+  }
+
+  static TextStyle appTitleText({double size = 18, Color color = Colors.black}) {
+    return TextStyle(color: color, fontSize: size, fontWeight: FontWeight.w600);
   }
 }

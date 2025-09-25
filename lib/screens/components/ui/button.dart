@@ -7,12 +7,14 @@ class ButtonComponent extends StatefulWidget {
   final Widget? icon;
   final double? width;
   final ButtonType? type;
+  final Function() onPressed;
   const ButtonComponent({
     super.key,
     required this.label,
     this.icon,
     this.type,
     this.width,
+    required this.onPressed,
   });
 
   @override
@@ -26,7 +28,7 @@ class _ButtonComponentState extends State<ButtonComponent> {
       width: widget.width ?? MediaQuery.of(context).size.width,
       height: 56,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: widget.onPressed,
         style: ElevatedButton.styleFrom(
           elevation: 0,
           shape: RoundedRectangleBorder(

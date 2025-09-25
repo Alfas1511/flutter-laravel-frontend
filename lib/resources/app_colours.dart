@@ -5,4 +5,5 @@ class AppColours {
   static Color primaryColourLight = const Color(0xFFCE93D8);
   static Color bgColor = const Color(0xFFFFFFFF);
   static Color lightColorText = const Color(0xFF877774);
+  static Color light20 = const Color(0xFF91919F);
 }

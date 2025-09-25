@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_laravel_sample/resources/app_colours.dart';
 import 'package:flutter_laravel_sample/resources/app_routes.dart';
 import 'package:flutter_laravel_sample/resources/app_strings.dart';
+import 'package:flutter_laravel_sample/screens/auth/signup_screen.dart';
 import 'package:flutter_laravel_sample/screens/onboarding/splash.dart';
 import 'package:flutter_laravel_sample/screens/onboarding/walk_through_screen.dart';
 import 'package:flutter_laravel_sample/screens/test_screen.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         AppRoutes.splash: (context) => const SplashScreen(),
         AppRoutes.walkthrough: (context) => WalkThroughScreen(),
         AppRoutes.test: (context) => TestScreen(),
+        AppRoutes.signup: (context) => SignupScreen(),
       },
     );
   }
