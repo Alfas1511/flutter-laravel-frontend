@@ -68,6 +68,7 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
                   ],
                 );
               },
+              controller: pageController,
               itemCount: slides.length,
               onPageChanged: (index) => setState(() => currentPage = index),
             ),
@@ -78,28 +79,7 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
             padding: EdgeInsets.all(20.0),
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.circle,
-                      size: 16,
-                      color: AppColours.primaryColour,
-                    ),
-                    const SizedBox(width: 8),
-                    Icon(
-                      Icons.circle,
-                      size: 16,
-                      color: AppColours.primaryColourLight,
-                    ),
-                    const SizedBox(width: 8),
-                    Icon(
-                      Icons.circle,
-                      size: 16,
-                      color: AppColours.primaryColourLight,
-                    ),
-                  ],
-                ),
+                indicatorWidget(),
 
                 const SizedBox(height: 20),
 
@@ -117,6 +97,39 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget indicatorWidget() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        // Icon(Icons.circle, size: 16, color: AppColours.primaryColour),
+        // const SizedBox(width: 8),
+        // Icon(Icons.circle, size: 16, color: AppColours.primaryColourLight),
+        // const SizedBox(width: 8),
+        // Icon(Icons.circle, size: 16, color: AppColours.primaryColourLight),
+        for (int i = 0; i < slides.length; i++) ...[
+          InkWell(
+            onTap: () => {
+              if (i != currentPage)
+                pageController.animateToPage(
+                  i,
+                  duration: const Duration(microseconds: 500),
+                  curve: Curves.easeOut,
+                ),
+            },
+            child: Icon(
+              Icons.circle,
+              size: currentPage == i ? 16 : 8,
+              color: currentPage == i
+                  ? AppColours.primaryColour
+                  : AppColours.primaryColourLight,
+            ),
+          ),
+          if (i < slides.length - 1) const SizedBox(width: 8),
+        ],
+      ],
     );
   }
 }
