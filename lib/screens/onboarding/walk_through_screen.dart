@@ -43,57 +43,12 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Expanded(
-            child: PageView.builder(
-              itemBuilder: (context, index) {
-                return ListView(
-                  padding: EdgeInsets.all(48),
-                  shrinkWrap: true,
-                  children: [
-                    // const SizedBox(height: 48),
-                    Image.asset(slides[index].image),
-                    const SizedBox(height: 20),
-                    Text(
-                      slides[index].title,
-                      style: AppStyles.titletwo(),
-                      textAlign: TextAlign.center,
-                    ),
-                    Text(
-                      slides[index].description,
-                      style: AppStyles.description(
-                        color: AppColours.lightColorText,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                );
-              },
-              controller: pageController,
-              itemCount: slides.length,
-              onPageChanged: (index) => setState(() => currentPage = index),
-            ),
-          ),
+          Expanded(child: page()),
 
           // const SizedBox(height: 20),
           Padding(
             padding: EdgeInsets.all(20.0),
-            child: Column(
-              children: [
-                indicatorWidget(),
-
-                const SizedBox(height: 20),
-
-                ButtonComponent(label: AppStrings.signUp),
-
-                const SizedBox(height: 20),
-
-                ButtonComponent(
-                  label: AppStrings.logIn,
-                  type: ButtonType.secondary,
-                ),
-                const SizedBox(height: 24),
-              ],
-            ),
+            child: Column(children: [indicatorWidget(), buttonsWidget()]),
           ),
         ],
       ),
@@ -130,6 +85,50 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
           if (i < slides.length - 1) const SizedBox(width: 8),
         ],
       ],
+    );
+  }
+
+  Widget buttonsWidget() {
+    return Column(
+      children: [
+        const SizedBox(height: 20),
+
+        ButtonComponent(label: AppStrings.signUp),
+
+        const SizedBox(height: 20),
+
+        ButtonComponent(label: AppStrings.logIn, type: ButtonType.secondary),
+        const SizedBox(height: 24),
+      ],
+    );
+  }
+
+  Widget page() {
+    return PageView.builder(
+      itemBuilder: (context, index) {
+        return ListView(
+          padding: EdgeInsets.all(48),
+          shrinkWrap: true,
+          children: [
+            // const SizedBox(height: 48),
+            Image.asset(slides[index].image),
+            const SizedBox(height: 20),
+            Text(
+              slides[index].title,
+              style: AppStyles.titletwo(),
+              textAlign: TextAlign.center,
+            ),
+            Text(
+              slides[index].description,
+              style: AppStyles.description(color: AppColours.lightColorText),
+              textAlign: TextAlign.center,
+            ),
+          ],
+        );
+      },
+      controller: pageController,
+      itemCount: slides.length,
+      onPageChanged: (index) => setState(() => currentPage = index),
     );
   }
 }
