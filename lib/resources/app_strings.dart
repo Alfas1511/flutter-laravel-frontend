@@ -12,4 +12,11 @@ class AppStrings {
 
   static String signUp = "Sign Up";
   static String logIn = "Log In";
+
+  static String name = "Name";
+  static String email = "Email";
+  static String password = "Password";
+
+  static String agreeText = "By signing up, you agree to the";
+  static String termsAndPrivacy = "Terms of Service and Privacy Policy";
 }

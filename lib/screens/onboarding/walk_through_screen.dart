@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_laravel_sample/models/slide.dart';
 import 'package:flutter_laravel_sample/resources/app_colours.dart';
 import 'package:flutter_laravel_sample/resources/app_routes.dart';
+import 'package:flutter_laravel_sample/resources/app_spacing.dart';
 import 'package:flutter_laravel_sample/resources/app_strings.dart';
 import 'package:flutter_laravel_sample/resources/app_styles.dart';
 import 'package:flutter_laravel_sample/screens/components/ui/button.dart';
@@ -92,21 +93,21 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
   Widget buttonsWidget() {
     return Column(
       children: [
-        const SizedBox(height: 20),
+        AppSpacing.vertical(size: 20),
 
         ButtonComponent(
           label: AppStrings.signUp,
           onPressed: () => Navigator.of(context).pushNamed(AppRoutes.signup),
         ),
 
-        const SizedBox(height: 20),
+        AppSpacing.vertical(size: 20),
 
         ButtonComponent(
           label: AppStrings.logIn,
           type: ButtonType.secondary,
           onPressed: () => {},
         ),
-        const SizedBox(height: 24),
+        AppSpacing.vertical(),
       ],
     );
   }

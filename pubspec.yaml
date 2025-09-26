@@ -79,6 +79,8 @@ flutter:
         - asset: assets/fonts/Inter_18pt-Bold.ttf
         - asset: assets/fonts/Inter_18pt-Medium.ttf
           weight: 600
+        - asset: assets/fonts/Inter_18pt-SemiBold.ttf
+          weight: 500
         - asset: assets/fonts/Inter_18pt-Regular.ttf
           weight: 700
     

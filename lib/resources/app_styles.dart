@@ -14,7 +14,7 @@ class AppStyles {
   }
 
   static TextStyle medium({double size = 16, Color color = Colors.black}) {
-    return TextStyle(color: color, fontSize: size, fontWeight: FontWeight.w600);
+    return TextStyle(color: color, fontSize: size, fontWeight: FontWeight.w500);
   }
 
   static TextStyle appTitleText({double size = 18, Color color = Colors.black}) {
